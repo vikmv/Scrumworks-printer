@@ -32,5 +32,23 @@ namespace ScrumWorksPrinter.Properties {
                 return ((string)(this["ScrumWorksPrinter_ScrumWorksService_ScrumWorksService"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("username_here")]
+        public string Username {
+            get {
+                return ((string)(this["Username"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("password_here")]
+        public string Password {
+            get {
+                return ((string)(this["Password"]));
+            }
+        }
     }
 }

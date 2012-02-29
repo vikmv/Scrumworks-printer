@@ -24,8 +24,9 @@ namespace ScrumWorksPrinter
         {
             return new ScrumWorksService.ScrumWorksService
             {
-
-                Credentials = new NetworkCredential(ConfigurationManager.AppSettings["username"], ConfigurationManager.AppSettings["password"]),
+                Credentials = new NetworkCredential(
+                    Properties.Settings.Default.Username,
+                    Properties.Settings.Default.Password),
                 PreAuthenticate = true
             };
         }
