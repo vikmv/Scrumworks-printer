@@ -1,0 +1,1966 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://api.scrumworks.danube.com/ScrumWorks" xmlns:ns2="http://api.scrumworks.danube.com/ScrumWorks/types" name="ScrumWorksService" targetNamespace="http://api.scrumworks.danube.com/ScrumWorks" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema xmlns:tns="http://api.scrumworks.danube.com/ScrumWorks/types" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:soap11-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://api.scrumworks.danube.com/ScrumWorks/types">
+      <xsd:complexType name="addBacklogItemsToTheme">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="arrayOfBacklogItemWSO_1" nillable="true" type="tns:BacklogItemWSO" />
+          <xsd:element name="ThemeWSO_2" nillable="true" type="tns:ThemeWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="BacklogItemWSO">
+        <xsd:sequence>
+          <xsd:element name="active" type="xsd:boolean" />
+          <xsd:element name="backlogItemId" nillable="true" type="xsd:long" />
+          <xsd:element name="completedDate" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="description" nillable="true" type="xsd:string" />
+          <xsd:element name="estimate" nillable="true" type="xsd:int" />
+          <xsd:element name="rank" type="xsd:double" />
+          <xsd:element name="releaseId" nillable="true" type="xsd:long" />
+          <xsd:element name="sprintId" nillable="true" type="xsd:long" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="themes" nillable="true" type="tns:ThemeWSO" />
+          <xsd:element name="title" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ThemeWSO">
+        <xsd:sequence>
+          <xsd:element name="name" nillable="true" type="xsd:string" />
+          <xsd:element name="themeId" nillable="true" type="xsd:long" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="addBacklogItemsToThemeResponse">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:complexType name="ServerException">
+        <xsd:sequence>
+          <xsd:element name="message" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="createBacklogItem">
+        <xsd:sequence>
+          <xsd:element name="BacklogItemWSO_1" nillable="true" type="tns:BacklogItemWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="createBacklogItemResponse">
+        <xsd:sequence>
+          <xsd:element name="result" nillable="true" type="tns:BacklogItemWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="createImpediment">
+        <xsd:sequence>
+          <xsd:element name="ImpedimentWSO_1" nillable="true" type="tns:ImpedimentWSO" />
+          <xsd:element name="ProductWSO_2" nillable="true" type="tns:ProductWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ImpedimentWSO">
+        <xsd:sequence>
+          <xsd:element name="detail" nillable="true" type="xsd:string" />
+          <xsd:element name="entryDate" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="id" nillable="true" type="xsd:long" />
+          <xsd:element name="lastModDate" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="resolutionDate" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="summary" nillable="true" type="xsd:string" />
+          <xsd:element name="teamId" nillable="true" type="xsd:long" />
+          <xsd:element name="teamMember" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ProductWSO">
+        <xsd:sequence>
+          <xsd:element name="effortUnits" nillable="true" type="xsd:string" />
+          <xsd:element name="id" nillable="true" type="xsd:long" />
+          <xsd:element name="name" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="createImpedimentResponse">
+        <xsd:sequence>
+          <xsd:element name="result" nillable="true" type="tns:ImpedimentWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="createRelease">
+        <xsd:sequence>
+          <xsd:element name="ReleaseWSO_1" nillable="true" type="tns:ReleaseWSO" />
+          <xsd:element name="ProductWSO_2" nillable="true" type="tns:ProductWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ReleaseWSO">
+        <xsd:sequence>
+          <xsd:element name="id" nillable="true" type="xsd:long" />
+          <xsd:element name="rank" type="xsd:double" />
+          <xsd:element name="releaseDate" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="startDate" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="title" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="createReleaseResponse">
+        <xsd:sequence>
+          <xsd:element name="result" nillable="true" type="tns:ReleaseWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="createSprint">
+        <xsd:sequence>
+          <xsd:element name="SprintWSO_1" nillable="true" type="tns:SprintWSO" />
+          <xsd:element name="TeamWSO_2" nillable="true" type="tns:TeamWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SprintWSO">
+        <xsd:sequence>
+          <xsd:element name="endDate" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="goals" nillable="true" type="xsd:string" />
+          <xsd:element name="id" nillable="true" type="xsd:long" />
+          <xsd:element name="name" nillable="true" type="xsd:string" />
+          <xsd:element name="productId" nillable="true" type="xsd:long" />
+          <xsd:element name="startDate" nillable="true" type="xsd:dateTime" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TeamWSO">
+        <xsd:sequence>
+          <xsd:element name="id" nillable="true" type="xsd:long" />
+          <xsd:element name="name" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="createSprintResponse">
+        <xsd:sequence>
+          <xsd:element name="result" nillable="true" type="tns:SprintWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="createTask">
+        <xsd:sequence>
+          <xsd:element name="TaskWSO_1" nillable="true" type="tns:TaskWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TaskWSO">
+        <xsd:sequence>
+          <xsd:element name="backlogItemId" nillable="true" type="xsd:long" />
+          <xsd:element name="description" nillable="true" type="xsd:string" />
+          <xsd:element name="estimatedHours" type="xsd:int" />
+          <xsd:element name="id" nillable="true" type="xsd:long" />
+          <xsd:element name="pointPerson" nillable="true" type="xsd:string" />
+          <xsd:element name="rank" type="xsd:double" />
+          <xsd:element name="status" nillable="true" type="tns:TaskStatusWSO" />
+          <xsd:element name="title" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TaskStatusWSO">
+        <xsd:sequence>
+          <xsd:element name="status" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="createTaskResponse">
+        <xsd:sequence>
+          <xsd:element name="result" nillable="true" type="tns:TaskWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="createTheme">
+        <xsd:sequence>
+          <xsd:element name="ThemeWSO_1" nillable="true" type="tns:ThemeWSO" />
+          <xsd:element name="ProductWSO_2" nillable="true" type="tns:ProductWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="createThemeResponse">
+        <xsd:sequence>
+          <xsd:element name="result" nillable="true" type="tns:ThemeWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="deleteBacklogItem">
+        <xsd:sequence>
+          <xsd:element name="BacklogItemWSO_1" nillable="true" type="tns:BacklogItemWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="deleteBacklogItemResponse">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:complexType name="deleteEmptyRelease">
+        <xsd:sequence>
+          <xsd:element name="ReleaseWSO_1" nillable="true" type="tns:ReleaseWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="deleteEmptyReleaseResponse">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:complexType name="deleteEmptySprint">
+        <xsd:sequence>
+          <xsd:element name="SprintWSO_1" nillable="true" type="tns:SprintWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="deleteEmptySprintResponse">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:complexType name="deleteTask">
+        <xsd:sequence>
+          <xsd:element name="TaskWSO_1" nillable="true" type="tns:TaskWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="deleteTaskResponse">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:complexType name="deleteTaskEstimate">
+        <xsd:sequence>
+          <xsd:element name="TaskWSO_1" nillable="true" type="tns:TaskWSO" />
+          <xsd:element name="Date_2" nillable="true" type="xsd:dateTime" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="deleteTaskEstimateResponse">
+        <xsd:sequence>
+          <xsd:element name="result" nillable="true" type="tns:TaskWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="deleteTheme">
+        <xsd:sequence>
+          <xsd:element name="ThemeWSO_1" nillable="true" type="tns:ThemeWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="deleteThemeResponse">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:complexType name="getActiveBacklogItems">
+        <xsd:sequence>
+          <xsd:element name="ProductWSO_1" nillable="true" type="tns:ProductWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="getActiveBacklogItemsResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="result" nillable="true" type="tns:BacklogItemWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="getActiveBacklogItemsForRelease">
+        <xsd:sequence>
+          <xsd:element name="ReleaseWSO_1" nillable="true" type="tns:ReleaseWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="getActiveBacklogItemsForReleaseResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="result" nillable="true" type="tns:BacklogItemWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="getActiveBacklogItemsForSprint">
+        <xsd:sequence>
+          <xsd:element name="SprintWSO_1" nillable="true" type="tns:SprintWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="getActiveBacklogItemsForSprintResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="result" nillable="true" type="tns:BacklogItemWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="getAuthenticatedTest">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:complexType name="getAuthenticatedTestResponse">
+        <xsd:sequence>
+          <xsd:element name="result" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="getBacklogItemEstimates">
+        <xsd:sequence>
+          <xsd:element name="BacklogItemWSO_1" nillable="true" type="tns:BacklogItemWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="getBacklogItemEstimatesResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="result" nillable="true" type="tns:BacklogItemEstimateWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="BacklogItemEstimateWSO">
+        <xsd:sequence>
+          <xsd:element name="estimate" nillable="true" type="xsd:int" />
+          <xsd:element name="estimateDate" nillable="true" type="xsd:dateTime" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="getBacklogItemsForTheme">
+        <xsd:sequence>
+          <xsd:element name="ThemeWSO_1" nillable="true" type="tns:ThemeWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="getBacklogItemsForThemeResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="result" nillable="true" type="tns:BacklogItemWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="getImpediments">
+        <xsd:sequence>
+          <xsd:element name="ProductWSO_1" nillable="true" type="tns:ProductWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="getImpedimentsResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="result" nillable="true" type="tns:ImpedimentWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="getInactiveBacklogItems">
+        <xsd:sequence>
+          <xsd:element name="ProductWSO_1" nillable="true" type="tns:ProductWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="getInactiveBacklogItemsResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="result" nillable="true" type="tns:BacklogItemWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="getProducts">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:complexType name="getProductsResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="result" nillable="true" type="tns:ProductWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="getReleases">
+        <xsd:sequence>
+          <xsd:element name="ProductWSO_1" nillable="true" type="tns:ProductWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="getReleasesResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="result" nillable="true" type="tns:ReleaseWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="getSprints">
+        <xsd:sequence>
+          <xsd:element name="ProductWSO_1" nillable="true" type="tns:ProductWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="getSprintsResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="result" nillable="true" type="tns:SprintWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="getTaskEstimates">
+        <xsd:sequence>
+          <xsd:element name="TaskWSO_1" nillable="true" type="tns:TaskWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="getTaskEstimatesResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="result" nillable="true" type="tns:TaskEstimateWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TaskEstimateWSO">
+        <xsd:sequence>
+          <xsd:element name="estimate" type="xsd:int" />
+          <xsd:element name="estimateDate" nillable="true" type="xsd:dateTime" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="getTasks">
+        <xsd:sequence>
+          <xsd:element name="BacklogItemWSO_1" nillable="true" type="tns:BacklogItemWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="getTasksResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="result" nillable="true" type="tns:TaskWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="getTeamMembers">
+        <xsd:sequence>
+          <xsd:element name="TeamWSO_1" nillable="true" type="tns:TeamWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="getTeamMembersResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="result" nillable="true" type="tns:UserWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="UserWSO">
+        <xsd:sequence>
+          <xsd:element name="active" type="xsd:boolean" />
+          <xsd:element name="firstName" nillable="true" type="xsd:string" />
+          <xsd:element name="id" nillable="true" type="xsd:long" />
+          <xsd:element name="lastName" nillable="true" type="xsd:string" />
+          <xsd:element name="userName" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="getTeams">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:complexType name="getTeamsResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="result" nillable="true" type="tns:TeamWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="getTest">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:complexType name="getTestResponse">
+        <xsd:sequence>
+          <xsd:element name="result" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="getThemes">
+        <xsd:sequence>
+          <xsd:element name="ProductWSO_1" nillable="true" type="tns:ProductWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="getThemesResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="result" nillable="true" type="tns:ThemeWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="getUsers">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:complexType name="getUsersResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="result" nillable="true" type="tns:UserWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="markBacklogItemInactive">
+        <xsd:sequence>
+          <xsd:element name="BacklogItemWSO_1" nillable="true" type="tns:BacklogItemWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="markBacklogItemInactiveResponse">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:complexType name="mergeThemes">
+        <xsd:sequence>
+          <xsd:element name="ThemeWSO_1" nillable="true" type="tns:ThemeWSO" />
+          <xsd:element name="ThemeWSO_2" nillable="true" type="tns:ThemeWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="mergeThemesResponse">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:complexType name="moveBacklogItemAfter">
+        <xsd:sequence>
+          <xsd:element name="BacklogItemWSO_1" nillable="true" type="tns:BacklogItemWSO" />
+          <xsd:element name="BacklogItemWSO_2" nillable="true" type="tns:BacklogItemWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="moveBacklogItemAfterResponse">
+        <xsd:sequence>
+          <xsd:element name="result" nillable="true" type="tns:BacklogItemWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="moveBacklogItemIntoRelease">
+        <xsd:sequence>
+          <xsd:element name="BacklogItemWSO_1" nillable="true" type="tns:BacklogItemWSO" />
+          <xsd:element name="ReleaseWSO_2" nillable="true" type="tns:ReleaseWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="moveBacklogItemIntoReleaseResponse">
+        <xsd:sequence>
+          <xsd:element name="result" nillable="true" type="tns:BacklogItemWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="moveBacklogItemIntoSprint">
+        <xsd:sequence>
+          <xsd:element name="BacklogItemWSO_1" nillable="true" type="tns:BacklogItemWSO" />
+          <xsd:element name="SprintWSO_2" nillable="true" type="tns:SprintWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="moveBacklogItemIntoSprintResponse">
+        <xsd:sequence>
+          <xsd:element name="result" nillable="true" type="tns:BacklogItemWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="moveBacklogItemsAfter">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="arrayOfBacklogItemWSO_1" nillable="true" type="tns:BacklogItemWSO" />
+          <xsd:element name="BacklogItemWSO_2" nillable="true" type="tns:BacklogItemWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="moveBacklogItemsAfterResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="result" nillable="true" type="tns:BacklogItemWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="moveBacklogItemsIntoRelease">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="arrayOfBacklogItemWSO_1" nillable="true" type="tns:BacklogItemWSO" />
+          <xsd:element name="ReleaseWSO_2" nillable="true" type="tns:ReleaseWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="moveBacklogItemsIntoReleaseResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="result" nillable="true" type="tns:BacklogItemWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="moveBacklogItemsIntoSprint">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="arrayOfBacklogItemWSO_1" nillable="true" type="tns:BacklogItemWSO" />
+          <xsd:element name="SprintWSO_2" nillable="true" type="tns:SprintWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="moveBacklogItemsIntoSprintResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="result" nillable="true" type="tns:BacklogItemWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="moveReleaseAfter">
+        <xsd:sequence>
+          <xsd:element name="ReleaseWSO_1" nillable="true" type="tns:ReleaseWSO" />
+          <xsd:element name="ReleaseWSO_2" nillable="true" type="tns:ReleaseWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="moveReleaseAfterResponse">
+        <xsd:sequence>
+          <xsd:element name="result" nillable="true" type="tns:ReleaseWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="moveReleaseBefore">
+        <xsd:sequence>
+          <xsd:element name="ReleaseWSO_1" nillable="true" type="tns:ReleaseWSO" />
+          <xsd:element name="ReleaseWSO_2" nillable="true" type="tns:ReleaseWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="moveReleaseBeforeResponse">
+        <xsd:sequence>
+          <xsd:element name="result" nillable="true" type="tns:ReleaseWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="moveTaskAfter">
+        <xsd:sequence>
+          <xsd:element name="TaskWSO_1" nillable="true" type="tns:TaskWSO" />
+          <xsd:element name="TaskWSO_2" nillable="true" type="tns:TaskWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="moveTaskAfterResponse">
+        <xsd:sequence>
+          <xsd:element name="result" nillable="true" type="tns:TaskWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="moveTaskIntoBacklogItem">
+        <xsd:sequence>
+          <xsd:element name="TaskWSO_1" nillable="true" type="tns:TaskWSO" />
+          <xsd:element name="BacklogItemWSO_2" nillable="true" type="tns:BacklogItemWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="moveTaskIntoBacklogItemResponse">
+        <xsd:sequence>
+          <xsd:element name="result" nillable="true" type="tns:TaskWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="moveTasksAfter">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="arrayOfTaskWSO_1" nillable="true" type="tns:TaskWSO" />
+          <xsd:element name="TaskWSO_2" nillable="true" type="tns:TaskWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="moveTasksAfterResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="result" nillable="true" type="tns:TaskWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="moveTasksIntoBacklogItem">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="arrayOfTaskWSO_1" nillable="true" type="tns:TaskWSO" />
+          <xsd:element name="BacklogItemWSO_2" nillable="true" type="tns:BacklogItemWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="moveTasksIntoBacklogItemResponse">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="result" nillable="true" type="tns:TaskWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="removeBacklogItemsFromTheme">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="arrayOfBacklogItemWSO_1" nillable="true" type="tns:BacklogItemWSO" />
+          <xsd:element name="ThemeWSO_2" nillable="true" type="tns:ThemeWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="removeBacklogItemsFromThemeResponse">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:complexType name="renameTheme">
+        <xsd:sequence>
+          <xsd:element name="ThemeWSO_1" nillable="true" type="tns:ThemeWSO" />
+          <xsd:element name="String_2" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="renameThemeResponse">
+        <xsd:sequence>
+          <xsd:element name="result" nillable="true" type="tns:ThemeWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="updateBacklogItem">
+        <xsd:sequence>
+          <xsd:element name="BacklogItemWSO_1" nillable="true" type="tns:BacklogItemWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="updateBacklogItemResponse">
+        <xsd:sequence>
+          <xsd:element name="result" nillable="true" type="tns:BacklogItemWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="updateImpediment">
+        <xsd:sequence>
+          <xsd:element name="ImpedimentWSO_1" nillable="true" type="tns:ImpedimentWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="updateImpedimentResponse">
+        <xsd:sequence>
+          <xsd:element name="result" nillable="true" type="tns:ImpedimentWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="updateRelease">
+        <xsd:sequence>
+          <xsd:element name="ReleaseWSO_1" nillable="true" type="tns:ReleaseWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="updateReleaseResponse">
+        <xsd:sequence>
+          <xsd:element name="result" nillable="true" type="tns:ReleaseWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="updateSprint">
+        <xsd:sequence>
+          <xsd:element name="SprintWSO_1" nillable="true" type="tns:SprintWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="updateSprintResponse">
+        <xsd:sequence>
+          <xsd:element name="result" nillable="true" type="tns:SprintWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="updateTask">
+        <xsd:sequence>
+          <xsd:element name="TaskWSO_1" nillable="true" type="tns:TaskWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="updateTaskResponse">
+        <xsd:sequence>
+          <xsd:element name="result" nillable="true" type="tns:TaskWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="updateTaskEstimate">
+        <xsd:sequence>
+          <xsd:element name="TaskWSO_1" nillable="true" type="tns:TaskWSO" />
+          <xsd:element name="Date_2" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="int_3" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="updateTaskEstimateResponse">
+        <xsd:sequence>
+          <xsd:element name="result" nillable="true" type="tns:TaskWSO" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="addBacklogItemsToTheme" type="tns:addBacklogItemsToTheme" />
+      <xsd:element name="addBacklogItemsToThemeResponse" type="tns:addBacklogItemsToThemeResponse" />
+      <xsd:element name="ServerException" type="tns:ServerException" />
+      <xsd:element name="createBacklogItem" type="tns:createBacklogItem" />
+      <xsd:element name="createBacklogItemResponse" type="tns:createBacklogItemResponse" />
+      <xsd:element name="createImpediment" type="tns:createImpediment" />
+      <xsd:element name="createImpedimentResponse" type="tns:createImpedimentResponse" />
+      <xsd:element name="createRelease" type="tns:createRelease" />
+      <xsd:element name="createReleaseResponse" type="tns:createReleaseResponse" />
+      <xsd:element name="createSprint" type="tns:createSprint" />
+      <xsd:element name="createSprintResponse" type="tns:createSprintResponse" />
+      <xsd:element name="createTask" type="tns:createTask" />
+      <xsd:element name="createTaskResponse" type="tns:createTaskResponse" />
+      <xsd:element name="createTheme" type="tns:createTheme" />
+      <xsd:element name="createThemeResponse" type="tns:createThemeResponse" />
+      <xsd:element name="deleteBacklogItem" type="tns:deleteBacklogItem" />
+      <xsd:element name="deleteBacklogItemResponse" type="tns:deleteBacklogItemResponse" />
+      <xsd:element name="deleteEmptyRelease" type="tns:deleteEmptyRelease" />
+      <xsd:element name="deleteEmptyReleaseResponse" type="tns:deleteEmptyReleaseResponse" />
+      <xsd:element name="deleteEmptySprint" type="tns:deleteEmptySprint" />
+      <xsd:element name="deleteEmptySprintResponse" type="tns:deleteEmptySprintResponse" />
+      <xsd:element name="deleteTask" type="tns:deleteTask" />
+      <xsd:element name="deleteTaskResponse" type="tns:deleteTaskResponse" />
+      <xsd:element name="deleteTaskEstimate" type="tns:deleteTaskEstimate" />
+      <xsd:element name="deleteTaskEstimateResponse" type="tns:deleteTaskEstimateResponse" />
+      <xsd:element name="deleteTheme" type="tns:deleteTheme" />
+      <xsd:element name="deleteThemeResponse" type="tns:deleteThemeResponse" />
+      <xsd:element name="getActiveBacklogItems" type="tns:getActiveBacklogItems" />
+      <xsd:element name="getActiveBacklogItemsResponse" type="tns:getActiveBacklogItemsResponse" />
+      <xsd:element name="getActiveBacklogItemsForRelease" type="tns:getActiveBacklogItemsForRelease" />
+      <xsd:element name="getActiveBacklogItemsForReleaseResponse" type="tns:getActiveBacklogItemsForReleaseResponse" />
+      <xsd:element name="getActiveBacklogItemsForSprint" type="tns:getActiveBacklogItemsForSprint" />
+      <xsd:element name="getActiveBacklogItemsForSprintResponse" type="tns:getActiveBacklogItemsForSprintResponse" />
+      <xsd:element name="getAuthenticatedTest" type="tns:getAuthenticatedTest" />
+      <xsd:element name="getAuthenticatedTestResponse" type="tns:getAuthenticatedTestResponse" />
+      <xsd:element name="getBacklogItemEstimates" type="tns:getBacklogItemEstimates" />
+      <xsd:element name="getBacklogItemEstimatesResponse" type="tns:getBacklogItemEstimatesResponse" />
+      <xsd:element name="getBacklogItemsForTheme" type="tns:getBacklogItemsForTheme" />
+      <xsd:element name="getBacklogItemsForThemeResponse" type="tns:getBacklogItemsForThemeResponse" />
+      <xsd:element name="getImpediments" type="tns:getImpediments" />
+      <xsd:element name="getImpedimentsResponse" type="tns:getImpedimentsResponse" />
+      <xsd:element name="getInactiveBacklogItems" type="tns:getInactiveBacklogItems" />
+      <xsd:element name="getInactiveBacklogItemsResponse" type="tns:getInactiveBacklogItemsResponse" />
+      <xsd:element name="getProducts" type="tns:getProducts" />
+      <xsd:element name="getProductsResponse" type="tns:getProductsResponse" />
+      <xsd:element name="getReleases" type="tns:getReleases" />
+      <xsd:element name="getReleasesResponse" type="tns:getReleasesResponse" />
+      <xsd:element name="getSprints" type="tns:getSprints" />
+      <xsd:element name="getSprintsResponse" type="tns:getSprintsResponse" />
+      <xsd:element name="getTaskEstimates" type="tns:getTaskEstimates" />
+      <xsd:element name="getTaskEstimatesResponse" type="tns:getTaskEstimatesResponse" />
+      <xsd:element name="getTasks" type="tns:getTasks" />
+      <xsd:element name="getTasksResponse" type="tns:getTasksResponse" />
+      <xsd:element name="getTeamMembers" type="tns:getTeamMembers" />
+      <xsd:element name="getTeamMembersResponse" type="tns:getTeamMembersResponse" />
+      <xsd:element name="getTeams" type="tns:getTeams" />
+      <xsd:element name="getTeamsResponse" type="tns:getTeamsResponse" />
+      <xsd:element name="getTest" type="tns:getTest" />
+      <xsd:element name="getTestResponse" type="tns:getTestResponse" />
+      <xsd:element name="getThemes" type="tns:getThemes" />
+      <xsd:element name="getThemesResponse" type="tns:getThemesResponse" />
+      <xsd:element name="getUsers" type="tns:getUsers" />
+      <xsd:element name="getUsersResponse" type="tns:getUsersResponse" />
+      <xsd:element name="markBacklogItemInactive" type="tns:markBacklogItemInactive" />
+      <xsd:element name="markBacklogItemInactiveResponse" type="tns:markBacklogItemInactiveResponse" />
+      <xsd:element name="mergeThemes" type="tns:mergeThemes" />
+      <xsd:element name="mergeThemesResponse" type="tns:mergeThemesResponse" />
+      <xsd:element name="moveBacklogItemAfter" type="tns:moveBacklogItemAfter" />
+      <xsd:element name="moveBacklogItemAfterResponse" type="tns:moveBacklogItemAfterResponse" />
+      <xsd:element name="moveBacklogItemIntoRelease" type="tns:moveBacklogItemIntoRelease" />
+      <xsd:element name="moveBacklogItemIntoReleaseResponse" type="tns:moveBacklogItemIntoReleaseResponse" />
+      <xsd:element name="moveBacklogItemIntoSprint" type="tns:moveBacklogItemIntoSprint" />
+      <xsd:element name="moveBacklogItemIntoSprintResponse" type="tns:moveBacklogItemIntoSprintResponse" />
+      <xsd:element name="moveBacklogItemsAfter" type="tns:moveBacklogItemsAfter" />
+      <xsd:element name="moveBacklogItemsAfterResponse" type="tns:moveBacklogItemsAfterResponse" />
+      <xsd:element name="moveBacklogItemsIntoRelease" type="tns:moveBacklogItemsIntoRelease" />
+      <xsd:element name="moveBacklogItemsIntoReleaseResponse" type="tns:moveBacklogItemsIntoReleaseResponse" />
+      <xsd:element name="moveBacklogItemsIntoSprint" type="tns:moveBacklogItemsIntoSprint" />
+      <xsd:element name="moveBacklogItemsIntoSprintResponse" type="tns:moveBacklogItemsIntoSprintResponse" />
+      <xsd:element name="moveReleaseAfter" type="tns:moveReleaseAfter" />
+      <xsd:element name="moveReleaseAfterResponse" type="tns:moveReleaseAfterResponse" />
+      <xsd:element name="moveReleaseBefore" type="tns:moveReleaseBefore" />
+      <xsd:element name="moveReleaseBeforeResponse" type="tns:moveReleaseBeforeResponse" />
+      <xsd:element name="moveTaskAfter" type="tns:moveTaskAfter" />
+      <xsd:element name="moveTaskAfterResponse" type="tns:moveTaskAfterResponse" />
+      <xsd:element name="moveTaskIntoBacklogItem" type="tns:moveTaskIntoBacklogItem" />
+      <xsd:element name="moveTaskIntoBacklogItemResponse" type="tns:moveTaskIntoBacklogItemResponse" />
+      <xsd:element name="moveTasksAfter" type="tns:moveTasksAfter" />
+      <xsd:element name="moveTasksAfterResponse" type="tns:moveTasksAfterResponse" />
+      <xsd:element name="moveTasksIntoBacklogItem" type="tns:moveTasksIntoBacklogItem" />
+      <xsd:element name="moveTasksIntoBacklogItemResponse" type="tns:moveTasksIntoBacklogItemResponse" />
+      <xsd:element name="removeBacklogItemsFromTheme" type="tns:removeBacklogItemsFromTheme" />
+      <xsd:element name="removeBacklogItemsFromThemeResponse" type="tns:removeBacklogItemsFromThemeResponse" />
+      <xsd:element name="renameTheme" type="tns:renameTheme" />
+      <xsd:element name="renameThemeResponse" type="tns:renameThemeResponse" />
+      <xsd:element name="updateBacklogItem" type="tns:updateBacklogItem" />
+      <xsd:element name="updateBacklogItemResponse" type="tns:updateBacklogItemResponse" />
+      <xsd:element name="updateImpediment" type="tns:updateImpediment" />
+      <xsd:element name="updateImpedimentResponse" type="tns:updateImpedimentResponse" />
+      <xsd:element name="updateRelease" type="tns:updateRelease" />
+      <xsd:element name="updateReleaseResponse" type="tns:updateReleaseResponse" />
+      <xsd:element name="updateSprint" type="tns:updateSprint" />
+      <xsd:element name="updateSprintResponse" type="tns:updateSprintResponse" />
+      <xsd:element name="updateTask" type="tns:updateTask" />
+      <xsd:element name="updateTaskResponse" type="tns:updateTaskResponse" />
+      <xsd:element name="updateTaskEstimate" type="tns:updateTaskEstimate" />
+      <xsd:element name="updateTaskEstimateResponse" type="tns:updateTaskEstimateResponse" />
+    </xsd:schema>
+  </types>
+  <message name="ScrumWorksEndpoint_moveBacklogItemAfter">
+    <part name="parameters" element="ns2:moveBacklogItemAfter" />
+  </message>
+  <message name="ScrumWorksEndpoint_getReleases">
+    <part name="parameters" element="ns2:getReleases" />
+  </message>
+  <message name="ScrumWorksEndpoint_getBacklogItemEstimates">
+    <part name="parameters" element="ns2:getBacklogItemEstimates" />
+  </message>
+  <message name="ScrumWorksEndpoint_moveTaskIntoBacklogItemResponse">
+    <part name="result" element="ns2:moveTaskIntoBacklogItemResponse" />
+  </message>
+  <message name="ScrumWorksEndpoint_mergeThemesResponse">
+    <part name="result" element="ns2:mergeThemesResponse" />
+  </message>
+  <message name="ScrumWorksEndpoint_createThemeResponse">
+    <part name="result" element="ns2:createThemeResponse" />
+  </message>
+  <message name="ScrumWorksEndpoint_moveTasksAfterResponse">
+    <part name="result" element="ns2:moveTasksAfterResponse" />
+  </message>
+  <message name="ScrumWorksEndpoint_createTask">
+    <part name="parameters" element="ns2:createTask" />
+  </message>
+  <message name="ScrumWorksEndpoint_updateTaskEstimate">
+    <part name="parameters" element="ns2:updateTaskEstimate" />
+  </message>
+  <message name="ScrumWorksEndpoint_moveTaskIntoBacklogItem">
+    <part name="parameters" element="ns2:moveTaskIntoBacklogItem" />
+  </message>
+  <message name="ScrumWorksEndpoint_getTestResponse">
+    <part name="result" element="ns2:getTestResponse" />
+  </message>
+  <message name="ScrumWorksEndpoint_createSprintResponse">
+    <part name="result" element="ns2:createSprintResponse" />
+  </message>
+  <message name="ScrumWorksEndpoint_moveReleaseBeforeResponse">
+    <part name="result" element="ns2:moveReleaseBeforeResponse" />
+  </message>
+  <message name="ScrumWorksEndpoint_moveTasksIntoBacklogItemResponse">
+    <part name="result" element="ns2:moveTasksIntoBacklogItemResponse" />
+  </message>
+  <message name="ScrumWorksEndpoint_markBacklogItemInactive">
+    <part name="parameters" element="ns2:markBacklogItemInactive" />
+  </message>
+  <message name="ScrumWorksEndpoint_getTeamMembers">
+    <part name="parameters" element="ns2:getTeamMembers" />
+  </message>
+  <message name="ScrumWorksEndpoint_updateSprint">
+    <part name="parameters" element="ns2:updateSprint" />
+  </message>
+  <message name="ScrumWorksEndpoint_getActiveBacklogItemsResponse">
+    <part name="result" element="ns2:getActiveBacklogItemsResponse" />
+  </message>
+  <message name="ScrumWorksEndpoint_deleteBacklogItemResponse">
+    <part name="result" element="ns2:deleteBacklogItemResponse" />
+  </message>
+  <message name="ScrumWorksEndpoint_updateTaskEstimateResponse">
+    <part name="result" element="ns2:updateTaskEstimateResponse" />
+  </message>
+  <message name="ScrumWorksEndpoint_deleteEmptySprint">
+    <part name="parameters" element="ns2:deleteEmptySprint" />
+  </message>
+  <message name="ScrumWorksEndpoint_getAuthenticatedTest">
+    <part name="parameters" element="ns2:getAuthenticatedTest" />
+  </message>
+  <message name="ScrumWorksEndpoint_deleteBacklogItem">
+    <part name="parameters" element="ns2:deleteBacklogItem" />
+  </message>
+  <message name="ScrumWorksEndpoint_deleteTaskEstimate">
+    <part name="parameters" element="ns2:deleteTaskEstimate" />
+  </message>
+  <message name="ScrumWorksEndpoint_getBacklogItemsForTheme">
+    <part name="parameters" element="ns2:getBacklogItemsForTheme" />
+  </message>
+  <message name="ScrumWorksEndpoint_getSprints">
+    <part name="parameters" element="ns2:getSprints" />
+  </message>
+  <message name="ScrumWorksEndpoint_moveBacklogItemsIntoRelease">
+    <part name="parameters" element="ns2:moveBacklogItemsIntoRelease" />
+  </message>
+  <message name="ScrumWorksEndpoint_getActiveBacklogItemsForReleaseResponse">
+    <part name="result" element="ns2:getActiveBacklogItemsForReleaseResponse" />
+  </message>
+  <message name="ScrumWorksEndpoint_createTaskResponse">
+    <part name="result" element="ns2:createTaskResponse" />
+  </message>
+  <message name="ScrumWorksEndpoint_moveTaskAfterResponse">
+    <part name="result" element="ns2:moveTaskAfterResponse" />
+  </message>
+  <message name="ScrumWorksEndpoint_getActiveBacklogItemsForSprint">
+    <part name="parameters" element="ns2:getActiveBacklogItemsForSprint" />
+  </message>
+  <message name="ScrumWorksEndpoint_moveBacklogItemsIntoSprintResponse">
+    <part name="result" element="ns2:moveBacklogItemsIntoSprintResponse" />
+  </message>
+  <message name="ScrumWorksEndpoint_getImpedimentsResponse">
+    <part name="result" element="ns2:getImpedimentsResponse" />
+  </message>
+  <message name="ScrumWorksEndpoint_getTaskEstimatesResponse">
+    <part name="result" element="ns2:getTaskEstimatesResponse" />
+  </message>
+  <message name="ScrumWorksEndpoint_updateReleaseResponse">
+    <part name="result" element="ns2:updateReleaseResponse" />
+  </message>
+  <message name="ScrumWorksEndpoint_moveTaskAfter">
+    <part name="parameters" element="ns2:moveTaskAfter" />
+  </message>
+  <message name="ScrumWorksEndpoint_getInactiveBacklogItems">
+    <part name="parameters" element="ns2:getInactiveBacklogItems" />
+  </message>
+  <message name="ScrumWorksEndpoint_createImpediment">
+    <part name="parameters" element="ns2:createImpediment" />
+  </message>
+  <message name="ScrumWorksEndpoint_getActiveBacklogItemsForSprintResponse">
+    <part name="result" element="ns2:getActiveBacklogItemsForSprintResponse" />
+  </message>
+  <message name="ScrumWorksEndpoint_updateSprintResponse">
+    <part name="result" element="ns2:updateSprintResponse" />
+  </message>
+  <message name="ScrumWorksEndpoint_moveTasksAfter">
+    <part name="parameters" element="ns2:moveTasksAfter" />
+  </message>
+  <message name="ScrumWorksEndpoint_moveBacklogItemsAfter">
+    <part name="parameters" element="ns2:moveBacklogItemsAfter" />
+  </message>
+  <message name="ScrumWorksEndpoint_createSprint">
+    <part name="parameters" element="ns2:createSprint" />
+  </message>
+  <message name="ScrumWorksEndpoint_updateImpedimentResponse">
+    <part name="result" element="ns2:updateImpedimentResponse" />
+  </message>
+  <message name="ScrumWorksEndpoint_deleteEmptyReleaseResponse">
+    <part name="result" element="ns2:deleteEmptyReleaseResponse" />
+  </message>
+  <message name="ScrumWorksEndpoint_moveBacklogItemAfterResponse">
+    <part name="result" element="ns2:moveBacklogItemAfterResponse" />
+  </message>
+  <message name="ScrumWorksEndpoint_deleteTaskEstimateResponse">
+    <part name="result" element="ns2:deleteTaskEstimateResponse" />
+  </message>
+  <message name="ScrumWorksEndpoint_deleteTask">
+    <part name="parameters" element="ns2:deleteTask" />
+  </message>
+  <message name="ScrumWorksEndpoint_moveBacklogItemIntoSprint">
+    <part name="parameters" element="ns2:moveBacklogItemIntoSprint" />
+  </message>
+  <message name="ScrumWorksEndpoint_getThemesResponse">
+    <part name="result" element="ns2:getThemesResponse" />
+  </message>
+  <message name="ScrumWorksEndpoint_createBacklogItem">
+    <part name="parameters" element="ns2:createBacklogItem" />
+  </message>
+  <message name="ScrumWorksEndpoint_moveReleaseAfter">
+    <part name="parameters" element="ns2:moveReleaseAfter" />
+  </message>
+  <message name="ScrumWorksEndpoint_getSprintsResponse">
+    <part name="result" element="ns2:getSprintsResponse" />
+  </message>
+  <message name="ScrumWorksEndpoint_getProductsResponse">
+    <part name="result" element="ns2:getProductsResponse" />
+  </message>
+  <message name="ScrumWorksEndpoint_getInactiveBacklogItemsResponse">
+    <part name="result" element="ns2:getInactiveBacklogItemsResponse" />
+  </message>
+  <message name="ScrumWorksEndpoint_renameThemeResponse">
+    <part name="result" element="ns2:renameThemeResponse" />
+  </message>
+  <message name="ScrumWorksEndpoint_getTeamsResponse">
+    <part name="result" element="ns2:getTeamsResponse" />
+  </message>
+  <message name="ScrumWorksEndpoint_createRelease">
+    <part name="parameters" element="ns2:createRelease" />
+  </message>
+  <message name="ScrumWorksEndpoint_deleteThemeResponse">
+    <part name="result" element="ns2:deleteThemeResponse" />
+  </message>
+  <message name="ScrumWorksEndpoint_moveBacklogItemIntoRelease">
+    <part name="parameters" element="ns2:moveBacklogItemIntoRelease" />
+  </message>
+  <message name="ScrumWorksEndpoint_createBacklogItemResponse">
+    <part name="result" element="ns2:createBacklogItemResponse" />
+  </message>
+  <message name="ScrumWorksEndpoint_moveBacklogItemsIntoReleaseResponse">
+    <part name="result" element="ns2:moveBacklogItemsIntoReleaseResponse" />
+  </message>
+  <message name="ScrumWorksEndpoint_removeBacklogItemsFromTheme">
+    <part name="parameters" element="ns2:removeBacklogItemsFromTheme" />
+  </message>
+  <message name="ScrumWorksEndpoint_updateTaskResponse">
+    <part name="result" element="ns2:updateTaskResponse" />
+  </message>
+  <message name="ScrumWorksEndpoint_moveReleaseBefore">
+    <part name="parameters" element="ns2:moveReleaseBefore" />
+  </message>
+  <message name="ScrumWorksEndpoint_moveBacklogItemIntoReleaseResponse">
+    <part name="result" element="ns2:moveBacklogItemIntoReleaseResponse" />
+  </message>
+  <message name="ScrumWorksEndpoint_updateImpediment">
+    <part name="parameters" element="ns2:updateImpediment" />
+  </message>
+  <message name="ScrumWorksEndpoint_getTeamMembersResponse">
+    <part name="result" element="ns2:getTeamMembersResponse" />
+  </message>
+  <message name="ScrumWorksEndpoint_deleteTheme">
+    <part name="parameters" element="ns2:deleteTheme" />
+  </message>
+  <message name="ScrumWorksEndpoint_getTasks">
+    <part name="parameters" element="ns2:getTasks" />
+  </message>
+  <message name="ScrumWorksEndpoint_updateRelease">
+    <part name="parameters" element="ns2:updateRelease" />
+  </message>
+  <message name="ScrumWorksEndpoint_moveReleaseAfterResponse">
+    <part name="result" element="ns2:moveReleaseAfterResponse" />
+  </message>
+  <message name="ScrumWorksEndpoint_getProducts">
+    <part name="parameters" element="ns2:getProducts" />
+  </message>
+  <message name="ScrumWorksEndpoint_deleteEmptySprintResponse">
+    <part name="result" element="ns2:deleteEmptySprintResponse" />
+  </message>
+  <message name="ScrumWorksEndpoint_mergeThemes">
+    <part name="parameters" element="ns2:mergeThemes" />
+  </message>
+  <message name="ScrumWorksEndpoint_getActiveBacklogItems">
+    <part name="parameters" element="ns2:getActiveBacklogItems" />
+  </message>
+  <message name="ScrumWorksEndpoint_getBacklogItemEstimatesResponse">
+    <part name="result" element="ns2:getBacklogItemEstimatesResponse" />
+  </message>
+  <message name="ScrumWorksEndpoint_getTasksResponse">
+    <part name="result" element="ns2:getTasksResponse" />
+  </message>
+  <message name="ScrumWorksEndpoint_createImpedimentResponse">
+    <part name="result" element="ns2:createImpedimentResponse" />
+  </message>
+  <message name="ScrumWorksEndpoint_getBacklogItemsForThemeResponse">
+    <part name="result" element="ns2:getBacklogItemsForThemeResponse" />
+  </message>
+  <message name="ScrumWorksEndpoint_createReleaseResponse">
+    <part name="result" element="ns2:createReleaseResponse" />
+  </message>
+  <message name="ScrumWorksEndpoint_getTeams">
+    <part name="parameters" element="ns2:getTeams" />
+  </message>
+  <message name="ScrumWorksEndpoint_moveBacklogItemsAfterResponse">
+    <part name="result" element="ns2:moveBacklogItemsAfterResponse" />
+  </message>
+  <message name="ScrumWorksEndpoint_getActiveBacklogItemsForRelease">
+    <part name="parameters" element="ns2:getActiveBacklogItemsForRelease" />
+  </message>
+  <message name="ScrumWorksEndpoint_addBacklogItemsToTheme">
+    <part name="parameters" element="ns2:addBacklogItemsToTheme" />
+  </message>
+  <message name="ScrumWorksEndpoint_getUsersResponse">
+    <part name="result" element="ns2:getUsersResponse" />
+  </message>
+  <message name="ScrumWorksEndpoint_deleteTaskResponse">
+    <part name="result" element="ns2:deleteTaskResponse" />
+  </message>
+  <message name="ScrumWorksEndpoint_getUsers">
+    <part name="parameters" element="ns2:getUsers" />
+  </message>
+  <message name="ScrumWorksEndpoint_addBacklogItemsToThemeResponse">
+    <part name="result" element="ns2:addBacklogItemsToThemeResponse" />
+  </message>
+  <message name="ServerException">
+    <part name="ServerException" element="ns2:ServerException" />
+  </message>
+  <message name="ScrumWorksEndpoint_getReleasesResponse">
+    <part name="result" element="ns2:getReleasesResponse" />
+  </message>
+  <message name="ScrumWorksEndpoint_deleteEmptyRelease">
+    <part name="parameters" element="ns2:deleteEmptyRelease" />
+  </message>
+  <message name="ScrumWorksEndpoint_getTaskEstimates">
+    <part name="parameters" element="ns2:getTaskEstimates" />
+  </message>
+  <message name="ScrumWorksEndpoint_moveBacklogItemsIntoSprint">
+    <part name="parameters" element="ns2:moveBacklogItemsIntoSprint" />
+  </message>
+  <message name="ScrumWorksEndpoint_createTheme">
+    <part name="parameters" element="ns2:createTheme" />
+  </message>
+  <message name="ScrumWorksEndpoint_updateTask">
+    <part name="parameters" element="ns2:updateTask" />
+  </message>
+  <message name="ScrumWorksEndpoint_moveTasksIntoBacklogItem">
+    <part name="parameters" element="ns2:moveTasksIntoBacklogItem" />
+  </message>
+  <message name="ScrumWorksEndpoint_getAuthenticatedTestResponse">
+    <part name="result" element="ns2:getAuthenticatedTestResponse" />
+  </message>
+  <message name="ScrumWorksEndpoint_removeBacklogItemsFromThemeResponse">
+    <part name="result" element="ns2:removeBacklogItemsFromThemeResponse" />
+  </message>
+  <message name="ScrumWorksEndpoint_getTest">
+    <part name="parameters" element="ns2:getTest" />
+  </message>
+  <message name="ScrumWorksEndpoint_markBacklogItemInactiveResponse">
+    <part name="result" element="ns2:markBacklogItemInactiveResponse" />
+  </message>
+  <message name="ScrumWorksEndpoint_getThemes">
+    <part name="parameters" element="ns2:getThemes" />
+  </message>
+  <message name="ScrumWorksEndpoint_updateBacklogItemResponse">
+    <part name="result" element="ns2:updateBacklogItemResponse" />
+  </message>
+  <message name="ScrumWorksEndpoint_updateBacklogItem">
+    <part name="parameters" element="ns2:updateBacklogItem" />
+  </message>
+  <message name="ScrumWorksEndpoint_renameTheme">
+    <part name="parameters" element="ns2:renameTheme" />
+  </message>
+  <message name="ScrumWorksEndpoint_getImpediments">
+    <part name="parameters" element="ns2:getImpediments" />
+  </message>
+  <message name="ScrumWorksEndpoint_moveBacklogItemIntoSprintResponse">
+    <part name="result" element="ns2:moveBacklogItemIntoSprintResponse" />
+  </message>
+  <portType name="ScrumWorksEndpoint">
+    <operation name="addBacklogItemsToTheme">
+      <input message="tns:ScrumWorksEndpoint_addBacklogItemsToTheme" />
+      <output message="tns:ScrumWorksEndpoint_addBacklogItemsToThemeResponse" />
+      <fault name="ServerException" message="tns:ServerException" />
+    </operation>
+    <operation name="createBacklogItem">
+      <input message="tns:ScrumWorksEndpoint_createBacklogItem" />
+      <output message="tns:ScrumWorksEndpoint_createBacklogItemResponse" />
+      <fault name="ServerException" message="tns:ServerException" />
+    </operation>
+    <operation name="createImpediment">
+      <input message="tns:ScrumWorksEndpoint_createImpediment" />
+      <output message="tns:ScrumWorksEndpoint_createImpedimentResponse" />
+      <fault name="ServerException" message="tns:ServerException" />
+    </operation>
+    <operation name="createRelease">
+      <input message="tns:ScrumWorksEndpoint_createRelease" />
+      <output message="tns:ScrumWorksEndpoint_createReleaseResponse" />
+      <fault name="ServerException" message="tns:ServerException" />
+    </operation>
+    <operation name="createSprint">
+      <input message="tns:ScrumWorksEndpoint_createSprint" />
+      <output message="tns:ScrumWorksEndpoint_createSprintResponse" />
+      <fault name="ServerException" message="tns:ServerException" />
+    </operation>
+    <operation name="createTask">
+      <input message="tns:ScrumWorksEndpoint_createTask" />
+      <output message="tns:ScrumWorksEndpoint_createTaskResponse" />
+      <fault name="ServerException" message="tns:ServerException" />
+    </operation>
+    <operation name="createTheme">
+      <input message="tns:ScrumWorksEndpoint_createTheme" />
+      <output message="tns:ScrumWorksEndpoint_createThemeResponse" />
+      <fault name="ServerException" message="tns:ServerException" />
+    </operation>
+    <operation name="deleteBacklogItem">
+      <input message="tns:ScrumWorksEndpoint_deleteBacklogItem" />
+      <output message="tns:ScrumWorksEndpoint_deleteBacklogItemResponse" />
+      <fault name="ServerException" message="tns:ServerException" />
+    </operation>
+    <operation name="deleteEmptyRelease">
+      <input message="tns:ScrumWorksEndpoint_deleteEmptyRelease" />
+      <output message="tns:ScrumWorksEndpoint_deleteEmptyReleaseResponse" />
+      <fault name="ServerException" message="tns:ServerException" />
+    </operation>
+    <operation name="deleteEmptySprint">
+      <input message="tns:ScrumWorksEndpoint_deleteEmptySprint" />
+      <output message="tns:ScrumWorksEndpoint_deleteEmptySprintResponse" />
+      <fault name="ServerException" message="tns:ServerException" />
+    </operation>
+    <operation name="deleteTask">
+      <input message="tns:ScrumWorksEndpoint_deleteTask" />
+      <output message="tns:ScrumWorksEndpoint_deleteTaskResponse" />
+      <fault name="ServerException" message="tns:ServerException" />
+    </operation>
+    <operation name="deleteTaskEstimate">
+      <input message="tns:ScrumWorksEndpoint_deleteTaskEstimate" />
+      <output message="tns:ScrumWorksEndpoint_deleteTaskEstimateResponse" />
+      <fault name="ServerException" message="tns:ServerException" />
+    </operation>
+    <operation name="deleteTheme">
+      <input message="tns:ScrumWorksEndpoint_deleteTheme" />
+      <output message="tns:ScrumWorksEndpoint_deleteThemeResponse" />
+      <fault name="ServerException" message="tns:ServerException" />
+    </operation>
+    <operation name="getActiveBacklogItems">
+      <input message="tns:ScrumWorksEndpoint_getActiveBacklogItems" />
+      <output message="tns:ScrumWorksEndpoint_getActiveBacklogItemsResponse" />
+      <fault name="ServerException" message="tns:ServerException" />
+    </operation>
+    <operation name="getActiveBacklogItemsForRelease">
+      <input message="tns:ScrumWorksEndpoint_getActiveBacklogItemsForRelease" />
+      <output message="tns:ScrumWorksEndpoint_getActiveBacklogItemsForReleaseResponse" />
+      <fault name="ServerException" message="tns:ServerException" />
+    </operation>
+    <operation name="getActiveBacklogItemsForSprint">
+      <input message="tns:ScrumWorksEndpoint_getActiveBacklogItemsForSprint" />
+      <output message="tns:ScrumWorksEndpoint_getActiveBacklogItemsForSprintResponse" />
+      <fault name="ServerException" message="tns:ServerException" />
+    </operation>
+    <operation name="getAuthenticatedTest">
+      <input message="tns:ScrumWorksEndpoint_getAuthenticatedTest" />
+      <output message="tns:ScrumWorksEndpoint_getAuthenticatedTestResponse" />
+    </operation>
+    <operation name="getBacklogItemEstimates">
+      <input message="tns:ScrumWorksEndpoint_getBacklogItemEstimates" />
+      <output message="tns:ScrumWorksEndpoint_getBacklogItemEstimatesResponse" />
+      <fault name="ServerException" message="tns:ServerException" />
+    </operation>
+    <operation name="getBacklogItemsForTheme">
+      <input message="tns:ScrumWorksEndpoint_getBacklogItemsForTheme" />
+      <output message="tns:ScrumWorksEndpoint_getBacklogItemsForThemeResponse" />
+      <fault name="ServerException" message="tns:ServerException" />
+    </operation>
+    <operation name="getImpediments">
+      <input message="tns:ScrumWorksEndpoint_getImpediments" />
+      <output message="tns:ScrumWorksEndpoint_getImpedimentsResponse" />
+      <fault name="ServerException" message="tns:ServerException" />
+    </operation>
+    <operation name="getInactiveBacklogItems">
+      <input message="tns:ScrumWorksEndpoint_getInactiveBacklogItems" />
+      <output message="tns:ScrumWorksEndpoint_getInactiveBacklogItemsResponse" />
+      <fault name="ServerException" message="tns:ServerException" />
+    </operation>
+    <operation name="getProducts">
+      <input message="tns:ScrumWorksEndpoint_getProducts" />
+      <output message="tns:ScrumWorksEndpoint_getProductsResponse" />
+      <fault name="ServerException" message="tns:ServerException" />
+    </operation>
+    <operation name="getReleases">
+      <input message="tns:ScrumWorksEndpoint_getReleases" />
+      <output message="tns:ScrumWorksEndpoint_getReleasesResponse" />
+      <fault name="ServerException" message="tns:ServerException" />
+    </operation>
+    <operation name="getSprints">
+      <input message="tns:ScrumWorksEndpoint_getSprints" />
+      <output message="tns:ScrumWorksEndpoint_getSprintsResponse" />
+      <fault name="ServerException" message="tns:ServerException" />
+    </operation>
+    <operation name="getTaskEstimates">
+      <input message="tns:ScrumWorksEndpoint_getTaskEstimates" />
+      <output message="tns:ScrumWorksEndpoint_getTaskEstimatesResponse" />
+      <fault name="ServerException" message="tns:ServerException" />
+    </operation>
+    <operation name="getTasks">
+      <input message="tns:ScrumWorksEndpoint_getTasks" />
+      <output message="tns:ScrumWorksEndpoint_getTasksResponse" />
+      <fault name="ServerException" message="tns:ServerException" />
+    </operation>
+    <operation name="getTeamMembers">
+      <input message="tns:ScrumWorksEndpoint_getTeamMembers" />
+      <output message="tns:ScrumWorksEndpoint_getTeamMembersResponse" />
+    </operation>
+    <operation name="getTeams">
+      <input message="tns:ScrumWorksEndpoint_getTeams" />
+      <output message="tns:ScrumWorksEndpoint_getTeamsResponse" />
+      <fault name="ServerException" message="tns:ServerException" />
+    </operation>
+    <operation name="getTest">
+      <input message="tns:ScrumWorksEndpoint_getTest" />
+      <output message="tns:ScrumWorksEndpoint_getTestResponse" />
+    </operation>
+    <operation name="getThemes">
+      <input message="tns:ScrumWorksEndpoint_getThemes" />
+      <output message="tns:ScrumWorksEndpoint_getThemesResponse" />
+      <fault name="ServerException" message="tns:ServerException" />
+    </operation>
+    <operation name="getUsers">
+      <input message="tns:ScrumWorksEndpoint_getUsers" />
+      <output message="tns:ScrumWorksEndpoint_getUsersResponse" />
+      <fault name="ServerException" message="tns:ServerException" />
+    </operation>
+    <operation name="markBacklogItemInactive">
+      <input message="tns:ScrumWorksEndpoint_markBacklogItemInactive" />
+      <output message="tns:ScrumWorksEndpoint_markBacklogItemInactiveResponse" />
+      <fault name="ServerException" message="tns:ServerException" />
+    </operation>
+    <operation name="mergeThemes">
+      <input message="tns:ScrumWorksEndpoint_mergeThemes" />
+      <output message="tns:ScrumWorksEndpoint_mergeThemesResponse" />
+      <fault name="ServerException" message="tns:ServerException" />
+    </operation>
+    <operation name="moveBacklogItemAfter">
+      <input message="tns:ScrumWorksEndpoint_moveBacklogItemAfter" />
+      <output message="tns:ScrumWorksEndpoint_moveBacklogItemAfterResponse" />
+      <fault name="ServerException" message="tns:ServerException" />
+    </operation>
+    <operation name="moveBacklogItemIntoRelease">
+      <input message="tns:ScrumWorksEndpoint_moveBacklogItemIntoRelease" />
+      <output message="tns:ScrumWorksEndpoint_moveBacklogItemIntoReleaseResponse" />
+      <fault name="ServerException" message="tns:ServerException" />
+    </operation>
+    <operation name="moveBacklogItemIntoSprint">
+      <input message="tns:ScrumWorksEndpoint_moveBacklogItemIntoSprint" />
+      <output message="tns:ScrumWorksEndpoint_moveBacklogItemIntoSprintResponse" />
+      <fault name="ServerException" message="tns:ServerException" />
+    </operation>
+    <operation name="moveBacklogItemsAfter">
+      <input message="tns:ScrumWorksEndpoint_moveBacklogItemsAfter" />
+      <output message="tns:ScrumWorksEndpoint_moveBacklogItemsAfterResponse" />
+      <fault name="ServerException" message="tns:ServerException" />
+    </operation>
+    <operation name="moveBacklogItemsIntoRelease">
+      <input message="tns:ScrumWorksEndpoint_moveBacklogItemsIntoRelease" />
+      <output message="tns:ScrumWorksEndpoint_moveBacklogItemsIntoReleaseResponse" />
+      <fault name="ServerException" message="tns:ServerException" />
+    </operation>
+    <operation name="moveBacklogItemsIntoSprint">
+      <input message="tns:ScrumWorksEndpoint_moveBacklogItemsIntoSprint" />
+      <output message="tns:ScrumWorksEndpoint_moveBacklogItemsIntoSprintResponse" />
+      <fault name="ServerException" message="tns:ServerException" />
+    </operation>
+    <operation name="moveReleaseAfter">
+      <input message="tns:ScrumWorksEndpoint_moveReleaseAfter" />
+      <output message="tns:ScrumWorksEndpoint_moveReleaseAfterResponse" />
+      <fault name="ServerException" message="tns:ServerException" />
+    </operation>
+    <operation name="moveReleaseBefore">
+      <input message="tns:ScrumWorksEndpoint_moveReleaseBefore" />
+      <output message="tns:ScrumWorksEndpoint_moveReleaseBeforeResponse" />
+      <fault name="ServerException" message="tns:ServerException" />
+    </operation>
+    <operation name="moveTaskAfter">
+      <input message="tns:ScrumWorksEndpoint_moveTaskAfter" />
+      <output message="tns:ScrumWorksEndpoint_moveTaskAfterResponse" />
+      <fault name="ServerException" message="tns:ServerException" />
+    </operation>
+    <operation name="moveTaskIntoBacklogItem">
+      <input message="tns:ScrumWorksEndpoint_moveTaskIntoBacklogItem" />
+      <output message="tns:ScrumWorksEndpoint_moveTaskIntoBacklogItemResponse" />
+      <fault name="ServerException" message="tns:ServerException" />
+    </operation>
+    <operation name="moveTasksAfter">
+      <input message="tns:ScrumWorksEndpoint_moveTasksAfter" />
+      <output message="tns:ScrumWorksEndpoint_moveTasksAfterResponse" />
+      <fault name="ServerException" message="tns:ServerException" />
+    </operation>
+    <operation name="moveTasksIntoBacklogItem">
+      <input message="tns:ScrumWorksEndpoint_moveTasksIntoBacklogItem" />
+      <output message="tns:ScrumWorksEndpoint_moveTasksIntoBacklogItemResponse" />
+      <fault name="ServerException" message="tns:ServerException" />
+    </operation>
+    <operation name="removeBacklogItemsFromTheme">
+      <input message="tns:ScrumWorksEndpoint_removeBacklogItemsFromTheme" />
+      <output message="tns:ScrumWorksEndpoint_removeBacklogItemsFromThemeResponse" />
+      <fault name="ServerException" message="tns:ServerException" />
+    </operation>
+    <operation name="renameTheme">
+      <input message="tns:ScrumWorksEndpoint_renameTheme" />
+      <output message="tns:ScrumWorksEndpoint_renameThemeResponse" />
+      <fault name="ServerException" message="tns:ServerException" />
+    </operation>
+    <operation name="updateBacklogItem">
+      <input message="tns:ScrumWorksEndpoint_updateBacklogItem" />
+      <output message="tns:ScrumWorksEndpoint_updateBacklogItemResponse" />
+      <fault name="ServerException" message="tns:ServerException" />
+    </operation>
+    <operation name="updateImpediment">
+      <input message="tns:ScrumWorksEndpoint_updateImpediment" />
+      <output message="tns:ScrumWorksEndpoint_updateImpedimentResponse" />
+      <fault name="ServerException" message="tns:ServerException" />
+    </operation>
+    <operation name="updateRelease">
+      <input message="tns:ScrumWorksEndpoint_updateRelease" />
+      <output message="tns:ScrumWorksEndpoint_updateReleaseResponse" />
+      <fault name="ServerException" message="tns:ServerException" />
+    </operation>
+    <operation name="updateSprint">
+      <input message="tns:ScrumWorksEndpoint_updateSprint" />
+      <output message="tns:ScrumWorksEndpoint_updateSprintResponse" />
+      <fault name="ServerException" message="tns:ServerException" />
+    </operation>
+    <operation name="updateTask">
+      <input message="tns:ScrumWorksEndpoint_updateTask" />
+      <output message="tns:ScrumWorksEndpoint_updateTaskResponse" />
+      <fault name="ServerException" message="tns:ServerException" />
+    </operation>
+    <operation name="updateTaskEstimate">
+      <input message="tns:ScrumWorksEndpoint_updateTaskEstimate" />
+      <output message="tns:ScrumWorksEndpoint_updateTaskEstimateResponse" />
+      <fault name="ServerException" message="tns:ServerException" />
+    </operation>
+  </portType>
+  <binding name="ScrumWorksEndpointBinding" type="tns:ScrumWorksEndpoint">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="addBacklogItemsToTheme">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerException">
+        <soap:fault use="literal" name="ServerException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="createBacklogItem">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerException">
+        <soap:fault use="literal" name="ServerException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="createImpediment">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerException">
+        <soap:fault use="literal" name="ServerException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="createRelease">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerException">
+        <soap:fault use="literal" name="ServerException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="createSprint">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerException">
+        <soap:fault use="literal" name="ServerException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="createTask">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerException">
+        <soap:fault use="literal" name="ServerException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="createTheme">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerException">
+        <soap:fault use="literal" name="ServerException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="deleteBacklogItem">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerException">
+        <soap:fault use="literal" name="ServerException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="deleteEmptyRelease">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerException">
+        <soap:fault use="literal" name="ServerException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="deleteEmptySprint">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerException">
+        <soap:fault use="literal" name="ServerException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="deleteTask">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerException">
+        <soap:fault use="literal" name="ServerException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="deleteTaskEstimate">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerException">
+        <soap:fault use="literal" name="ServerException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="deleteTheme">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerException">
+        <soap:fault use="literal" name="ServerException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getActiveBacklogItems">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerException">
+        <soap:fault use="literal" name="ServerException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getActiveBacklogItemsForRelease">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerException">
+        <soap:fault use="literal" name="ServerException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getActiveBacklogItemsForSprint">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerException">
+        <soap:fault use="literal" name="ServerException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getAuthenticatedTest">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getBacklogItemEstimates">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerException">
+        <soap:fault use="literal" name="ServerException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getBacklogItemsForTheme">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerException">
+        <soap:fault use="literal" name="ServerException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getImpediments">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerException">
+        <soap:fault use="literal" name="ServerException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getInactiveBacklogItems">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerException">
+        <soap:fault use="literal" name="ServerException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getProducts">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerException">
+        <soap:fault use="literal" name="ServerException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getReleases">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerException">
+        <soap:fault use="literal" name="ServerException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getSprints">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerException">
+        <soap:fault use="literal" name="ServerException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getTaskEstimates">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerException">
+        <soap:fault use="literal" name="ServerException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getTasks">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerException">
+        <soap:fault use="literal" name="ServerException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getTeamMembers">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getTeams">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerException">
+        <soap:fault use="literal" name="ServerException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getTest">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getThemes">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerException">
+        <soap:fault use="literal" name="ServerException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getUsers">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerException">
+        <soap:fault use="literal" name="ServerException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="markBacklogItemInactive">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerException">
+        <soap:fault use="literal" name="ServerException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="mergeThemes">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerException">
+        <soap:fault use="literal" name="ServerException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="moveBacklogItemAfter">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerException">
+        <soap:fault use="literal" name="ServerException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="moveBacklogItemIntoRelease">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerException">
+        <soap:fault use="literal" name="ServerException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="moveBacklogItemIntoSprint">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerException">
+        <soap:fault use="literal" name="ServerException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="moveBacklogItemsAfter">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerException">
+        <soap:fault use="literal" name="ServerException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="moveBacklogItemsIntoRelease">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerException">
+        <soap:fault use="literal" name="ServerException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="moveBacklogItemsIntoSprint">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerException">
+        <soap:fault use="literal" name="ServerException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="moveReleaseAfter">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerException">
+        <soap:fault use="literal" name="ServerException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="moveReleaseBefore">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerException">
+        <soap:fault use="literal" name="ServerException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="moveTaskAfter">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerException">
+        <soap:fault use="literal" name="ServerException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="moveTaskIntoBacklogItem">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerException">
+        <soap:fault use="literal" name="ServerException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="moveTasksAfter">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerException">
+        <soap:fault use="literal" name="ServerException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="moveTasksIntoBacklogItem">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerException">
+        <soap:fault use="literal" name="ServerException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="removeBacklogItemsFromTheme">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerException">
+        <soap:fault use="literal" name="ServerException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="renameTheme">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerException">
+        <soap:fault use="literal" name="ServerException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="updateBacklogItem">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerException">
+        <soap:fault use="literal" name="ServerException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="updateImpediment">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerException">
+        <soap:fault use="literal" name="ServerException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="updateRelease">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerException">
+        <soap:fault use="literal" name="ServerException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="updateSprint">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerException">
+        <soap:fault use="literal" name="ServerException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="updateTask">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerException">
+        <soap:fault use="literal" name="ServerException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="updateTaskEstimate">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServerException">
+        <soap:fault use="literal" name="ServerException" namespace="" />
+      </fault>
+    </operation>
+  </binding>
+  <service name="ScrumWorksService">
+    <port name="ScrumWorksEndpointPort" binding="tns:ScrumWorksEndpointBinding">
+      <soap:address location="http://LTAPP001:8080/scrumworks-api/scrumworks" />
+    </port>
+  </service>
+</definitions>
