@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.Linq;
+using ScrumWorksPrinter.Properties;
 
 namespace ScrumWorksPrinter
 {
@@ -112,7 +113,22 @@ namespace ScrumWorksPrinter
 
             graphics.DrawString(task.Title, titleFont, brush, rect, titleAlignment);
             graphics.DrawString(task.Description, descFont, brush, descRect, descAlignment);
-            graphics.DrawString(task.Estimate.ToString(), estimateFont, brush, rect, estimateAlignment);
+
+            if (task is BackLogItem)
+            {
+                var imgHeight = 100;
+                var imgWidth = (int)(Resources.tux.Width * ((float)imgHeight / Resources.tux.Height));
+                var nrect = new Rectangle(rect.Right - imgWidth, rect.Bottom - imgHeight, imgWidth, imgHeight);
+
+                graphics.DrawImage(Resources.tux, nrect);
+
+                nrect.Offset(0, 57);
+                graphics.DrawString(task.Estimate.ToString(), estimateFont, brush, nrect, titleAlignment);
+            }
+            else
+            {
+                graphics.DrawString(task.Estimate.ToString(), estimateFont, brush, rect, estimateAlignment);
+            }
         }
 
     }
